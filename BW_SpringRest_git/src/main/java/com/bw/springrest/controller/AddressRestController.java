@@ -15,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bw.springrest.model.Address;
 import com.bw.springrest.service.AddressService;
+import com.fasterxml.jackson.annotation.JsonView;
 
 
 
@@ -26,6 +27,7 @@ public class AddressRestController {
 
 	
 	//-------------------Retrieve All Addresses--------------------------------------------------------	
+	@JsonView(View.myFilter.class)
 	@RequestMapping(value="/address", method=RequestMethod.GET)
 	public ResponseEntity<List<Address>> listAllUsers() {
 		List<Address> addresses = addressService.findAllAddresses();

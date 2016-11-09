@@ -9,18 +9,23 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.bw.springrest.controller.View;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Address{
 
-
+	@JsonView(View.myFilter.class)
 	@Id
 	@GeneratedValue
 	private long id;
 
+	@JsonView(View.myFilter.class)
 	@Size(min = 2, max = 50)
 	@Column(name = "FIRSTNAME", nullable = false)
 	private String firstName;
 
+	@JsonView(View.myFilter.class)
 	@Size(min = 2, max = 50)
 	@Column(name = "LASTNAME", nullable = false)
 	private String lastName;
